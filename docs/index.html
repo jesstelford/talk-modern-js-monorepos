@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset='utf-8'>
+<meta name='viewport' content='width=device-width,initial-scale=1'>
+<style>*{box-sizing:border-box}body{font-family:system-ui,sans-serif;margin:0}</style>
+<meta name='generator' content='mdx-deck'>
+<title data-head="true">Managing Modern JS Monorepos</title><style data-styled-components="guqeLg kmKUJZ gKaMTo zIEGn CAuLq vIzDp kPOGYN fFFKwF byfFmt lkIJBD hTjMfW kAzjOl eIIwaK hRPRsv iLvMQI gmKbQu iJZqAF fJODMz cXgiMa eCoqJu kaUAEP gtARdA hOCGEu fbxTAJ bNhvRs">
+/* sc-component-id: sc-bdVaJa */
+.sc-bdVaJa {} .eCoqJu{display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex;-webkit-box-pack:center;-webkit-justify-content:center;-ms-flex-pack:center;justify-content:center;margin-bottom:8px;margin-left:auto;margin-right:auto;} @media print{.eCoqJu{display:none;}}
+/* sc-component-id: sc-bwzfXH */
+.sc-bwzfXH {} .kaUAEP{-webkit-appearance:none;-moz-appearance:none;appearance:none;border:4px solid transparent;background-clip:padding-box;border-radius:9999px;width:8px;height:8px;color:inherit;opacity:0.5;margin:0px;padding:4px;color:#000;background-color:#000;} .kaUAEP:focus{outline:none;box-shadow:0 0 0 1px;}.gtARdA{-webkit-appearance:none;-moz-appearance:none;appearance:none;border:4px solid transparent;background-clip:padding-box;border-radius:9999px;width:8px;height:8px;color:inherit;opacity:0.125;margin:0px;padding:4px;color:#000;background-color:#000;} .gtARdA:focus{outline:none;box-shadow:0 0 0 1px;}
+/* sc-component-id: sc-htpNat */
+.sc-htpNat {} .cXgiMa{position:fixed;left:0;right:0;bottom:0;}
+/* sc-component-id: sc-bxivhb */
+.sc-bxivhb {} .fbxTAJ{cursor:pointer;width:64px;height:100vh;}
+/* sc-component-id: sc-ifAKCX */
+.sc-ifAKCX {} .hOCGEu{position:fixed;top:0;left:0;bottom:0;}
+/* sc-component-id: sc-EHOje */
+.sc-EHOje {} .bNhvRs{position:fixed;top:0;right:0;bottom:0;}
+/* sc-component-id: sc-bZQynM */
+.sc-bZQynM {} .kmKUJZ{overflow-x:hidden;width:100%;height:100%;} @media print{.kmKUJZ{height:auto;overflow-x:visible;}}
+/* sc-component-id: sc-gzVnrw */
+.sc-gzVnrw {} .gKaMTo{display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex;width:100%;height:100%;-webkit-transition-property:-webkit-transform;-webkit-transition-property:transform;transition-property:transform;-webkit-transition-timing-function:ease-out;transition-timing-function:ease-out;-webkit-transition-duration:.3s;transition-duration:.3s;-webkit-transform:translate3d(0%,0,0);-ms-transform:translate3d(0%,0,0);transform:translate3d(0%,0,0);} @media print{.gKaMTo{height:auto;display:block;}}
+/* sc-component-id: sc-htoDjs */
+.sc-htoDjs {} .zIEGn{-webkit-flex:none;-ms-flex:none;flex:none;display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex;-webkit-align-items:center;-webkit-box-align:center;-ms-flex-align:center;align-items:center;-webkit-box-pack:center;-webkit-justify-content:center;-ms-flex-pack:center;justify-content:center;-webkit-flex-direction:column;-ms-flex-direction:column;flex-direction:column;overflow:hidden;width:100%;height:100%;padding-left:32px;padding-right:32px;} @media print{.zIEGn{width:100vw;height:100vh;page-break-after:always;page-break-inside:avoid;-webkit-print-color-adjust:exact;}} @media screen and (min-width:40em){.zIEGn{padding-left:64px;padding-right:64px;}} @media screen and (min-width:52em){.zIEGn{padding-left:128px;padding-right:128px;}}
+/* sc-component-id: sc-dnqmqq */
+.sc-dnqmqq {} .guqeLg{font-family:"Helvetica Neue",Helvetica,Arial,sans-serif;text-align:left;font-size:16px;width:100vw;height:100vh;color:#000;background-color:#fff;} @media print{.guqeLg{font-size:24px;height:auto;}} @media screen and (min-width:64em){.guqeLg{font-size:32px;}} .guqeLg .Slide > div{min-width:80vw;min-height:60vh;}
+/* sc-component-id: sc-jzJRlG */
+.sc-jzJRlG {} .vIzDp{line-height:1.25;font-size:3em;margin-bottom:16px;margin-top:16px;color:heading;}
+/* sc-component-id: sc-cSHVUG */
+.sc-cSHVUG {}
+/* sc-component-id: sc-kAzzGY */
+.sc-kAzzGY {} .lkIJBD{line-height:1.25;font-size:2em;margin-bottom:16px;margin-top:16px;color:heading;}
+/* sc-component-id: sc-chPdSV */
+.sc-chPdSV {}
+/* sc-component-id: sc-kgoBCf */
+.sc-kgoBCf {} .hRPRsv{line-height:1.25;font-size:1.5em;margin-bottom:16px;margin-top:16px;color:heading;}
+/* sc-component-id: sc-kGXeez */
+.sc-kGXeez {}
+/* sc-component-id: sc-kpOJdX */
+.sc-kpOJdX {}
+/* sc-component-id: sc-dxgOiQ */
+.sc-dxgOiQ {}
+/* sc-component-id: sc-kEYyzF */
+.sc-kEYyzF {} .fFFKwF{color:#f00;}
+/* sc-component-id: sc-kkGfuU */
+.sc-kkGfuU {} .kPOGYN{font-size:1.5em;}
+/* sc-component-id: sc-iAyFgw */
+.sc-iAyFgw {} .iLvMQI{text-align:left;font-size:1.5em;text-align:left;}
+/* sc-component-id: sc-hSdWYo */
+.sc-hSdWYo {} .fJODMz{text-align:left;font-size:1.5em;text-align:left;}
+/* sc-component-id: sc-eHgmQL */
+.sc-eHgmQL {}
+/* sc-component-id: sc-brqgnP */
+.sc-brqgnP {} .iJZqAF{font-family:Menlo,monospace;color:code;background-color:codeBackground;}</style>
+</head>
+<body>
+<div id=root><div><div class="sc-dnqmqq guqeLg" mode="NORMAL" step="0" width="100vw" height="100vh" color="text"><div class="sc-bZQynM kmKUJZ"><div class="sc-gzVnrw gKaMTo"><div class="sc-htoDjs zIEGn"><div><h1 class="sc-cSHVUG CAuLq sc-jzJRlG vIzDp" font-size="4" color="heading">Managing Modern JS Monorepos</h1><p class="sc-kkGfuU kPOGYN" font-size="2">👋 <a class="sc-kEYyzF fFFKwF" href="https://mobile.twitter.com/jesstelford" color="link">@jesstelford</a></p></div></div><div class="sc-htoDjs zIEGn"><div><h2 class="sc-chPdSV byfFmt sc-kAzzGY lkIJBD" font-size="3" color="heading">Single Package Repos</h2><h4 class="sc-dxgOiQ hTjMfW sc-kpOJdX kAzjOl" font-size="2">aka <em>Many-Repos</em></h4></div></div><div class="sc-htoDjs zIEGn"><div><h3 class="sc-kGXeez eIIwaK sc-kgoBCf hRPRsv" font-size="2" color="heading">Tools for Many-Repos</h3><ul class="sc-iAyFgw iLvMQI" font-size="2"><li class="sc-eHgmQL gmKbQu"><code class="sc-brqgnP iJZqAF" color="code">yarn</code></li><li class="sc-eHgmQL gmKbQu"><code class="sc-brqgnP iJZqAF" color="code">np</code></li><li class="sc-eHgmQL gmKbQu">Most other things on <code class="sc-brqgnP iJZqAF" color="code">npm</code></li></ul></div></div><div class="sc-htoDjs zIEGn"><div><h3 class="sc-kGXeez eIIwaK sc-kgoBCf hRPRsv" font-size="2" color="heading">Many-repo flow</h3><p class="sc-kkGfuU kPOGYN" font-size="2"><code class="sc-brqgnP iJZqAF" color="code">Code -&gt; Commit -&gt; PR -&gt; Publish</code></p></div></div><div class="sc-htoDjs zIEGn"><div><h3 class="sc-kGXeez eIIwaK sc-kgoBCf hRPRsv" font-size="2" color="heading">⚠ Problems with Many-Repos</h3><ul class="sc-iAyFgw iLvMQI" font-size="2"><li class="sc-eHgmQL gmKbQu">Managing lots of packages is tricky</li><li class="sc-eHgmQL gmKbQu">Large effort to publish</li><li class="sc-eHgmQL gmKbQu">Version syncing is tricky</li></ul></div></div><div class="sc-htoDjs zIEGn"><div><h2 class="sc-chPdSV byfFmt sc-kAzzGY lkIJBD" font-size="3" color="heading">Monorepos are the solution! 🎉</h2></div></div><div class="sc-htoDjs zIEGn"><div><h3 class="sc-kGXeez eIIwaK sc-kgoBCf hRPRsv" font-size="2" color="heading">Many vs Mono</h3></div></div><div class="sc-htoDjs zIEGn"><div><h3 class="sc-kGXeez eIIwaK sc-kgoBCf hRPRsv" font-size="2" color="heading">Many</h3><p class="sc-kkGfuU kPOGYN" font-size="2">✅ git history<br/>
+✅ no merge conflicts<br/>
+✅ easier onboarding / contributing<br/>
+✅ less tooling</p></div></div><div class="sc-htoDjs zIEGn"><div><h3 class="sc-kGXeez eIIwaK sc-kgoBCf hRPRsv" font-size="2" color="heading">Many</h3><p class="sc-kkGfuU kPOGYN" font-size="2">🚫 duplicate <code class="sc-brqgnP iJZqAF" color="code">node_modules</code> (yarn PNP might help)<br/>
+🚫 managing publishing for related deps<br/>
+🚫 disconnected git histories<br/>
+🚫 multiple PRs</p></div></div><div class="sc-htoDjs zIEGn"><div><h3 class="sc-kGXeez eIIwaK sc-kgoBCf hRPRsv" font-size="2" color="heading">Mono</h3><p class="sc-kkGfuU kPOGYN" font-size="2">✅ Single codebase<br/>
+✅ single PRs for many packages<br/>
+✅ single integration test point<br/>
+✅ Single <code class="sc-brqgnP iJZqAF" color="code">node_modules</code></p></div></div><div class="sc-htoDjs zIEGn"><div><h3 class="sc-kGXeez eIIwaK sc-kgoBCf hRPRsv" font-size="2" color="heading">Mono</h3><p class="sc-kkGfuU kPOGYN" font-size="2">🚫 huge repos<br/>
+🚫 mixed git history<br/>
+🚫 more tooling<br/>
+🚫 difficult onboarding</p></div></div><div class="sc-htoDjs zIEGn"><div><h2 class="sc-chPdSV byfFmt sc-kAzzGY lkIJBD" font-size="3" color="heading">Many in a Mono</h2><p class="sc-kkGfuU kPOGYN" font-size="2"><code class="sc-brqgnP iJZqAF" color="code">Code -&gt; Commit -&gt; PR -&gt; Publish</code></p><p class="sc-kkGfuU kPOGYN" font-size="2">becomes</p><p class="sc-kkGfuU kPOGYN" font-size="2"><code class="sc-brqgnP iJZqAF" color="code">cd [package-dir] -&gt; Code -&gt; Commit -&gt; PR -&gt; Publish</code></p></div></div><div class="sc-htoDjs zIEGn"><div><h3 class="sc-kGXeez eIIwaK sc-kgoBCf hRPRsv" font-size="2" color="heading">Many in a Mono</h3><p class="sc-kkGfuU kPOGYN" font-size="2">✅ less tooling<br/>
+✅ Single codebase<br/>
+✅ single PRs for many packages<br/>
+✅ single integration test point<br/>
+✅ single <code class="sc-brqgnP iJZqAF" color="code">node_modules</code></p></div></div><div class="sc-htoDjs zIEGn"><div><h3 class="sc-kGXeez eIIwaK sc-kgoBCf hRPRsv" font-size="2" color="heading">Many in a Mono</h3><p class="sc-kkGfuU kPOGYN" font-size="2">🚫 managing publishing for related deps<br/>
+🚫 huge repos<br/>
+🚫 mixed git history<br/>
+🚫 difficult onboarding</p></div></div><div class="sc-htoDjs zIEGn"><div><h2 class="sc-chPdSV byfFmt sc-kAzzGY lkIJBD" font-size="3" color="heading">Tools for Monorepos</h2><ul class="sc-iAyFgw iLvMQI" font-size="2"><li class="sc-eHgmQL gmKbQu">lerna</li><li class="sc-eHgmQL gmKbQu">yarn workspaces</li><li class="sc-eHgmQL gmKbQu">bolt</li></ul></div></div><div class="sc-htoDjs zIEGn"><div><h2 class="sc-chPdSV byfFmt sc-kAzzGY lkIJBD" font-size="3" color="heading"><code class="sc-brqgnP iJZqAF" color="code">Bolt</code></h2></div></div><div class="sc-htoDjs zIEGn"><div><h3 class="sc-kGXeez eIIwaK sc-kgoBCf hRPRsv" font-size="2" color="heading"><code class="sc-brqgnP iJZqAF" color="code">Bolt</code></h3><p class="sc-kkGfuU kPOGYN" font-size="2">✅ Single codebase<br/>
+✅ single PRs for many packages<br/>
+✅ single integration test point<br/>
+✅ single <code class="sc-brqgnP iJZqAF" color="code">node_modules</code></p></div></div><div class="sc-htoDjs zIEGn"><div><h3 class="sc-kGXeez eIIwaK sc-kgoBCf hRPRsv" font-size="2" color="heading"><code class="sc-brqgnP iJZqAF" color="code">Bolt</code></h3><p class="sc-kkGfuU kPOGYN" font-size="2">🚫 managing publishing for related deps<br/>
+🚫 huge repos<br/>
+🚫 mixed git history<br/>
+🚫 more tooling</p></div></div><div class="sc-htoDjs zIEGn"><div><h2 class="sc-chPdSV byfFmt sc-kAzzGY lkIJBD" font-size="3" color="heading">Publishing from a Bolt monorepo</h2></div></div><div class="sc-htoDjs zIEGn"><div><p class="sc-kkGfuU kPOGYN" font-size="2"><strong><code class="sc-brqgnP iJZqAF" color="code">@atlaskit/build-releases</code></strong></p><ol class="sc-hSdWYo fJODMz" font-size="2"><li class="sc-eHgmQL gmKbQu"><code class="sc-brqgnP iJZqAF" color="code">yarn build-releases changeset</code></li><li class="sc-eHgmQL gmKbQu"><code class="sc-brqgnP iJZqAF" color="code">yarn build-releases version</code></li><li class="sc-eHgmQL gmKbQu"><code class="sc-brqgnP iJZqAF" color="code">yarn build-releases publish</code></li></ol></div></div><div class="sc-htoDjs zIEGn"><div><h3 class="sc-kGXeez eIIwaK sc-kgoBCf hRPRsv" font-size="2" color="heading"><code class="sc-brqgnP iJZqAF" color="code">Bolt</code> + <code class="sc-brqgnP iJZqAF" color="code">@atlaskit/build-releases</code></h3><p class="sc-kkGfuU kPOGYN" font-size="2">✅ Single codebase<br/>
+✅ single PRs for many packages<br/>
+✅ single integration test point<br/>
+✅ single <code class="sc-brqgnP iJZqAF" color="code">node_modules</code><br/>
+✅ Easy publish<br/>
+🚫 huge repos<br/>
+🚫 more tooling</p></div></div><div class="sc-htoDjs zIEGn"><div><h2 class="sc-chPdSV byfFmt sc-kAzzGY lkIJBD" font-size="3" color="heading">Monorepo tools</h2><ul class="sc-iAyFgw iLvMQI" font-size="2"><li class="sc-eHgmQL gmKbQu"><code class="sc-brqgnP iJZqAF" color="code">bolt</code> | <a class="sc-kEYyzF fFFKwF" href="http://boltpkg.com/" color="link">boltpkg.com</a></li><li class="sc-eHgmQL gmKbQu"><code class="sc-brqgnP iJZqAF" color="code">@atlaskit/build-releases</code> | <a class="sc-kEYyzF fFFKwF" href="https://www.npmjs.com/package/@atlaskit/build-releases" color="link">npm/@atlaskit/build-releases</a></li></ul></div></div><div class="sc-htoDjs zIEGn"><div><h1 class="sc-cSHVUG CAuLq sc-jzJRlG vIzDp" font-size="4" color="heading"><a class="sc-kEYyzF fFFKwF" href="https://cete.io" color="link">https://cete.io</a></h1></div></div></div></div></div></div><div class="sc-htpNat cXgiMa"><div class="sc-bdVaJa eCoqJu"><button class="sc-bwzfXH kaUAEP" title="go to: 0" color="text"></button><button class="sc-bwzfXH gtARdA" title="go to: 1" color="text"></button><button class="sc-bwzfXH gtARdA" title="go to: 2" color="text"></button><button class="sc-bwzfXH gtARdA" title="go to: 3" color="text"></button><button class="sc-bwzfXH gtARdA" title="go to: 4" color="text"></button><button class="sc-bwzfXH gtARdA" title="go to: 5" color="text"></button><button class="sc-bwzfXH gtARdA" title="go to: 6" color="text"></button><button class="sc-bwzfXH gtARdA" title="go to: 7" color="text"></button><button class="sc-bwzfXH gtARdA" title="go to: 8" color="text"></button><button class="sc-bwzfXH gtARdA" title="go to: 9" color="text"></button><button class="sc-bwzfXH gtARdA" title="go to: 10" color="text"></button><button class="sc-bwzfXH gtARdA" title="go to: 11" color="text"></button><button class="sc-bwzfXH gtARdA" title="go to: 12" color="text"></button><button class="sc-bwzfXH gtARdA" title="go to: 13" color="text"></button><button class="sc-bwzfXH gtARdA" title="go to: 14" color="text"></button><button class="sc-bwzfXH gtARdA" title="go to: 15" color="text"></button><button class="sc-bwzfXH gtARdA" title="go to: 16" color="text"></button><button class="sc-bwzfXH gtARdA" title="go to: 17" color="text"></button><button class="sc-bwzfXH gtARdA" title="go to: 18" color="text"></button><button class="sc-bwzfXH gtARdA" title="go to: 19" color="text"></button><button class="sc-bwzfXH gtARdA" title="go to: 20" color="text"></button><button class="sc-bwzfXH gtARdA" title="go to: 21" color="text"></button><button class="sc-bwzfXH gtARdA" title="go to: 22" color="text"></button></div></div><div class="sc-ifAKCX hOCGEu sc-bxivhb fbxTAJ" role="button" title="Previous Slide"></div><div class="sc-EHOje bNhvRs sc-bxivhb fbxTAJ" role="button" title="Next Slide"></div></div>
+<script src="main.js"></script>
+</body>
+</html>

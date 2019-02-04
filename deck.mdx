@@ -1,18 +1,14 @@
 import { Head } from 'mdx-deck'
 
-export { default as theme } from './theme'
+export { swiss as theme } from 'mdx-deck/themes'
 
 <Head>
-  <title>Presentation Title</title>
+  <title>Managing Modern JS Monorepos</title>
 </Head>
 
-# Hello
+# Managing Modern JS Monorepos
 
----
-
-## Edit this file
-
-To create your presentation
+👋 [@jesstelford](https://mobile.twitter.com/jesstelford)
 
 ```notes
 - Create speaker notes in fenced code blocks
@@ -20,4 +16,190 @@ To create your presentation
 
 ---
 
-<https://github.com/jxnblk/mdx-deck>
+## Single Package Repos
+
+#### aka _Many-Repos_
+
+---
+
+### Tools for Many-Repos
+
+- `yarn`
+- `np`
+- Most other things on `npm`
+
+---
+
+### Many-repo flow
+
+`Code -> Commit -> PR -> Publish`
+
+---
+
+### ⚠ Problems with Many-Repos
+
+- Managing lots of packages is tricky
+- Large effort to publish
+- Version syncing is tricky
+
+---
+
+## Monorepos are the solution! 🎉
+
+---
+
+### Many vs Mono
+
+---
+
+### Many
+
+✅ git history<br />
+✅ no merge conflicts<br />
+✅ easier onboarding / contributing<br />
+✅ less tooling
+
+---
+
+### Many
+
+🚫 duplicate `node_modules` (yarn PNP might help)<br />
+🚫 managing publishing for related deps<br />
+🚫 disconnected git histories<br />
+🚫 multiple PRs
+
+---
+
+### Mono
+
+✅ Single codebase<br />
+✅ single PRs for many packages<br />
+✅ single integration test point<br />
+✅ Single `node_modules`
+
+---
+
+### Mono
+
+🚫 huge repos<br />
+🚫 mixed git history<br />
+🚫 more tooling<br />
+🚫 difficult onboarding
+
+---
+
+## Many in a Mono
+
+`Code -> Commit -> PR -> Publish`
+
+becomes
+
+`cd [package-dir] -> Code -> Commit -> PR -> Publish`
+
+```notes
+- To alleviate some of the pains of Many-repos
+- Treat each folder like its own repo for publishing
+- But cumbersome / slow / error prone
+```
+
+---
+
+### Many in a Mono
+
+✅ less tooling<br />
+✅ Single codebase<br />
+✅ single PRs for many packages<br />
+✅ single integration test point<br />
+✅ single `node_modules`
+
+---
+
+### Many in a Mono
+
+🚫 managing publishing for related deps<br />
+🚫 huge repos<br />
+🚫 mixed git history<br />
+🚫 difficult onboarding
+
+---
+
+## Tools for Monorepos
+
+- lerna
+- yarn workspaces
+- bolt
+
+---
+
+## `Bolt`
+
+```notes
+- setting up
+- demo?
+```
+
+---
+
+### `Bolt`
+
+✅ Single codebase<br />
+✅ single PRs for many packages<br />
+✅ single integration test point<br />
+✅ single `node_modules`
+
+---
+
+### `Bolt`
+
+🚫 managing publishing for related deps<br />
+🚫 huge repos<br />
+🚫 mixed git history<br />
+🚫 more tooling
+
+```notes
+- onboarding is simplified
+```
+
+---
+
+## Publishing from a Bolt monorepo
+
+---
+
+**`@atlaskit/build-releases`**
+
+1. `yarn build-releases changeset`
+2. `yarn build-releases version`
+3. `yarn build-releases publish`
+
+```notes
+- Works great with PRs
+```
+
+---
+
+### `Bolt` + `@atlaskit/build-releases`
+
+✅ Single codebase<br />
+✅ single PRs for many packages<br />
+✅ single integration test point<br />
+✅ single `node_modules`<br />
+✅ Easy publish<br />
+🚫 huge repos<br />
+🚫 more tooling
+
+```notes
+- git history is less important thanks to changelogs
+- publishing is simple!
+```
+
+---
+
+## Monorepo tools
+
+- `bolt` | [boltpkg.com](http://boltpkg.com/)
+- `@atlaskit/build-releases` | [npm/@atlaskit/build-releases](https://www.npmjs.com/package/@atlaskit/build-releases)
+
+---
+
+# <https://cete.io>

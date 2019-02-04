@@ -4,7 +4,7 @@
   "description": "Deck created with mdx-deck",
   "scripts": {
     "start": "mdx-deck deck.mdx",
-    "build": "mdx-deck build deck.mdx",
+    "build": "mdx-deck build deck.mdx -d docs",
     "pdf": "mdx-deck pdf deck.mdx",
     "image": "mdx-deck screenshot deck.mdx",
     "help": "mdx-deck"
@@ -12,8 +12,9 @@
   "keywords": [],
   "author": "Brent Jackson",
   "license": "MIT",
-  "devDependencies": {
-    "mdx-deck": "^1.6.7"
-  },
-  "name": "deck"
+  "devDependencies": {},
+  "name": "deck",
+  "dependencies": {
+    "mdx-deck": "^1.8.2"
+  }
 }
